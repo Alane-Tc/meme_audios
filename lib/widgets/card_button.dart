@@ -14,7 +14,6 @@ class _CardButtonScreenState extends State<CardButtonScreen> {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      color: const Color.fromARGB(255, 226, 226, 226),
       padding: const EdgeInsets.all(8.0),
       width: double.infinity,
       height: size.height * 0.5,

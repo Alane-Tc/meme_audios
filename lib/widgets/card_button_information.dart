@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:soundpool/soundpool.dart';
 
-
 class CarButtonInformationScreen extends StatefulWidget {
   const CarButtonInformationScreen({Key? key}) : super(key: key);
 
@@ -13,7 +12,6 @@ class CarButtonInformationScreen extends StatefulWidget {
   State<CarButtonInformationScreen> createState() =>
       _CarButtonInformationScreenState();
 }
-
 
 final information = [
   {
@@ -35,8 +33,6 @@ final information = [
 
 class _CarButtonInformationScreenState
     extends State<CarButtonInformationScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -79,18 +75,17 @@ class Information_card_memes extends StatelessWidget {
     Key? key,
     required this.messageTitle,
     required this.messageButton,
-    required this.urlImage, 
-             this.urlAudio,
+    required this.urlImage,
+    this.urlAudio,
   }) : super(key: key);
 
   final String messageTitle;
   final String messageButton;
-  final String urlImage; 
+  final String urlImage;
   final String? urlAudio;
 
   @override
   Widget build(BuildContext context) {
-     
     return Container(
       width: 130,
       height: 190,
@@ -114,26 +109,24 @@ class Information_card_memes extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
           ),
-          TextButton(
-            style: TextButton.styleFrom(
-              primary: Colors.blue,
-              onSurface: Colors.red,
-            ),
-            onPressed: () async {
-                _soundButton(urlAudio!); 
-            },
-            child: Text(messageButton),
-          ),
+          IconButton(
+              onPressed: () async {
+                _soundButton(urlAudio!);
+              },
+              icon: const Icon(
+                Icons.play_circle,
+                color: Colors.blue,
+              ))
         ],
       ),
     );
   }
 
-  void _soundButton(String url) async{
-       Soundpool pool = Soundpool(streamType: StreamType.notification);
+  void _soundButton(String url) async {
+    Soundpool pool = Soundpool(streamType: StreamType.notification);
     int soundId = await rootBundle.load(url).then((ByteData soundData) {
-                  return pool.load(soundData);
-                });
+      return pool.load(soundData);
+    });
     int streamId = await pool.play(soundId);
   }
 }

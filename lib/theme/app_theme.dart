@@ -12,21 +12,9 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
         titleSpacing: 00.0,
         centerTitle: true,
-        //toolbarHeight: 60.2,
-        // shape: RoundedRectangleBorder(
-        //   borderRadius: BorderRadius.only(
-        //       bottomRight: Radius.circular(25),
-        //       bottomLeft: Radius.circular(25)),
-        // ),
         color: primary,
         elevation: 0.00),
 
-        // textButtonTheme: const TextButtonThemeData(
-        //   style: ButtonStyle(
-        //     textStyle: ,
-        //      primary: Colors.blue,
-        //       onSurface: Colors.red,
-        //   )
-        // )
+      scaffoldBackgroundColor: const Color.fromARGB(255, 226, 226, 226)
   );
 }
